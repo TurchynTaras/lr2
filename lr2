@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <windows.h>
+using namespace std;
+
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    const int size = 10; 
+    double a[size]; 
+
+    
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            a[i] = (pow(i, 2)+j) * cos(i + j);
+        }
+    }
+
+    
+    double max_val = a[0], min_val = a[0];
+    int max_index = 0, min_index = 0;
+    for (int i = 0; i < size; i++) {
+        if (a[i] > max_val) {
+            max_val = a[i];
+            max_index = i;
+        }
+        if (a[i] < min_val) {
+            min_val = a[i];
+            min_index = i;
+        }
+    }
+
+    
+    cout << "Масив:" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Максимальний елемент: " << max_val << ", порядковий номер: " << max_index << endl;
+    cout << "Мінімальний елемент: " << min_val << ", порядковий номер: " << min_index << endl;
+
+    return 0;
+}
